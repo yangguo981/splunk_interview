@@ -29,6 +29,13 @@ category browsing page: http://0.0.0.0:30000/category/Drama/1
 search page: http://0.0.0.0:30000/search/funny/0
 film details page: http://0.0.0.0:30000/film/66509
 
+Installation:
+*Setup a mysql DB, create a database named 'test', then create the table by schema.sql.
+*Download and extract the MovieLens raw data, drop them to the data directory.
+*Run rawdata_processor.py to import the raw data.
+*Run start_web.py to start the web service.
+*Open a browser and visit http://0.0.0.0:30000/
+
 TODO:
   *Make the UI nicer. (Use jquery/easyui)
   *Convert the rawdata_processor to parallel data processing framework. (spark)
@@ -38,12 +45,10 @@ TODO:
   *Documentation
 
 For film suggestion:
-One possible solution is to use spark mllib als
+One possible solution is to use spark mllib als module.
 Steps:
 1: Use ASL module to train suggested films for all users.
 2: For each user, select top 100 suggested films.
 3: For each film, select top 100 users who likes it most
 4: For the top 100 users, select the top 10 films with the highest score. (A simple scoring function: film score = sum(user score))
-All the above steps can be finished in spark, so it's a scale solution.
-
-
+All the above steps can be finished in spark, it's scale.
