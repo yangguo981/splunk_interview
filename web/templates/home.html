@@ -1,0 +1,38 @@
+<h2>Film browsing</h2>
+
+<!-- A search box -->
+<p>Input the search keyword</p>
+<form method="POST" action="/search">
+    <input name="keyword"  style="width:300px"/>
+    <input type='submit'></input>
+</form>
+
+<!-- Home page suggested films -->
+<h1>Suggested films</h1>
+<div>
+    {% for item in film_list %}
+        <div>
+            <h3>
+                <a href="/film/{{ item.movie_id }}" target="_blank">
+                    {{ item.title }}
+                </a>
+                rating: {{ item.rating }}
+                year: {{ item.year }}
+            </h3>
+        </div>
+    {% endfor %}
+</div>
+
+<!-- List all categories -->
+<h1>Category</h1>
+<div>
+    {% for item in category_list %}
+        <div>
+            <h3>
+                <a href="/category/{{ item }}" target="_blank">
+                    {{  item  }}
+                </a>
+            </h3>
+        </div>
+    {% endfor %}
+</div>

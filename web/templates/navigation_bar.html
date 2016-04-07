@@ -1,0 +1,8 @@
+<!-- Subpage for paging -->
+{% for item in page_index_before_list %}
+    <a href="{{ url_prefix }}/{{ item }}">{{ item }}</a>
+{% endfor %}
+<b>{{ current_page_index }}</b>
+{% for item in page_index_after_list %}
+    <a href="{{ url_prefix }}/{{ item }}">{{ item }}</a>
+{% endfor %}

@@ -1,0 +1,18 @@
+<h2>Category: {{ category_name }}</h2>
+
+<div>
+    {% for item in film_list %}
+        <div>
+            <h3>
+                <a href="/film/{{ item.movie_id }}" target="_blank">
+                    {{ item.title }}
+                </a>
+                rating: {{ item.rating }}
+                year: {{ item.year }}
+            </h3>
+        </div>
+    {% endfor %}
+</div>
+
+<!--  Paging footer -->
+{% include 'navigation_bar.html' %}

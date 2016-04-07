@@ -1,0 +1,12 @@
+<h1>Film details</h1>
+<div>
+    <div>Title: {{  film_info.title }}</div>
+    <div>category: {{  film_info.genres }}</div>
+    <div>rating: {{  film_info.rating  }}</div>
+    <div>rated by {{  film_info.user_count  }} users</div>
+    <div>publication year: {{  film_info.year  }}</div>
+    <a href='http://www.imdb.com/title/tt{{ film_info.imdb }}/' target="_blank">IMDB link</a>
+    <div>tmdb id: {{  film_info.tmdb  }}</div>
+    <div>User input tags:  {{  film_info.tags  }}</div>
+    <div>Related films: {{  film_info.related_films }}</div>
+</div>

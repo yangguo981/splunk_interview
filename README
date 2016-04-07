@@ -1,0 +1,49 @@
+Intro:
+An python based film search/browsing web service.
+The raw film data is from MovieLens(https://movielens.org/)
+  small data set: http://files.grouplens.org/datasets/movielens/ml-latest-small-README.html
+  big data set: http://files.grouplens.org/datasets/movielens/ml-latest-README.html
+
+Used 3rd Components:
+*Storage: MySQL DB
+  -http://www.mysql.com/
+*Web framework: Flask
+  -http://flask.pocoo.org/
+
+Code structure:
+data
+  big: unzipped full data set(Not included, please download via the above link)
+  small: unzipped small data set(Not included, please download via the above link)
+web
+  controller: path dispatcher
+  model: MySQL DB connector
+  templates: HTML templates
+  utils: Help functions
+  start_web.py: Main entry for web service
+rawdata_processor.py: raw data importer
+schema.sql: mysql db schema
+
+Available pages:
+homepage: http://0.0.0.0:30000/
+category browsing page: http://0.0.0.0:30000/category/Drama/1
+search page: http://0.0.0.0:30000/search/funny/0
+film details page: http://0.0.0.0:30000/film/66509
+
+TODO:
+  *Make the UI nicer. (Use jquery/easyui)
+  *Convert the rawdata_processor to parallel data processing framework. (spark)
+  *Error handling.
+  *More log information.
+  *Unit test. (python unittest module)
+  *Documentation
+
+For film suggestion:
+One possible solution is to use spark mllib als
+Steps:
+1: Use ASL module to train suggested films for all users.
+2: For each user, select top 100 suggested films.
+3: For each film, select top 100 users who likes it most
+4: For the top 100 users, select the top 10 films with the highest score. (A simple scoring function: film score = sum(user score))
+All the above steps can be finished in spark, so it's a scale solution.
+
+
